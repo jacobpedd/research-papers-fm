@@ -1,28 +1,6 @@
+import returnHtml from './utils/html';
+
 const html = `
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>📜 ResearchPapers.fm</title>
-    <style>
-      /* from nat.org */
-      body { 
-        line-height: 1.4;
-          font-size: 16px;
-          padding: 0 10px;
-          margin: 50px auto;
-          max-width: 650px;
-      }
-
-      #maincontent
-      {
-      max-width:42em;margin:15 auto;
-
-      }
-    </style>
-  </head>
-  <body>
     <h2>📜 ResearchPapers.fm</h2>
     <p>Listen to interesting new papers from <a href="https://arxiv.org/" target="_blank">arxiv.org</a> as engaging podcasts.</p>
     <p>How it works:</p>
@@ -51,13 +29,8 @@ const html = `
     <p>
       <i>Created by Jacob Peddicord. <a href="https://github.com/jacobpedd/research-papers-fm">Source code (TODO)</a>. Not affiliated with arxiv.org.</i>
     </p>
-  </body>
-</html>
 `;
 
 export default function landing() {
-	const response = new Response(html, {
-		headers: { 'Content-Type': 'text/html' },
-	});
-	return response;
+	return returnHtml(html);
 }
