@@ -27,7 +27,7 @@ const html = `
       <button>Submit</button>
     </form>
     <p>
-      <i>Created by Jacob Peddicord. <a href="https://github.com/jacobpedd/research-papers-fm">Source code (TODO)</a>. Not affiliated with arxiv.org.</i>
+      <i>Created by Jacob Peddicord. <a href="https://github.com/jacobpedd/research-papers-fm" target="_blank">Source code</a>. Not affiliated with arxiv.org.</i>
     </p>
 `;
 
