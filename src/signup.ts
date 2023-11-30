@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid';
 import { Env } from '.';
 import returnHtml from './utils/html';
 
@@ -19,7 +20,8 @@ export async function signup(request: Request, env: Env) {
 
 	// Store the data in KV
 	if (await env.KV.get(email)) return new Response('User already exists', { status: 400 });
-	await env.KV.put(email, topics);
+	await env.KV.put(`${email}:topics`, topics);
+	await env.KV.put(`${email}:token`, nanoid(9));
 
 	// TODO: Tell them a link to their dashboard has been sent to their email.
 	return returnHtml(html);

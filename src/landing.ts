@@ -14,7 +14,7 @@ const html = `
     </ol>
     <p>Here's an example from today:</p>
     <p>TODO: Put example audio here.</p>
-    <h3>Get started (<a href="/login">Login (TODO)</a>)</h3>
+    <h3>Get started (<a href="/login">Login</a>)</h3>
     <form action="/signup" method="post">
       <labal>
         <p>Email:</p>

@@ -1,5 +1,6 @@
 import favicon from './favicon';
 import landing from './landing';
+import { login } from './login';
 import { signup } from './signup';
 
 export interface Env {
@@ -8,15 +9,18 @@ export interface Env {
 
 export default {
 	async fetch(request: Request, env: Env): Promise<Response> {
-		if (request.url.endsWith('/favicon.ico')) {
-			return favicon();
-		} else if (request.url.endsWith('.fm') || request.url.endsWith(':8787/')) {
-			return landing();
-		} else if (request.url.endsWith('/signup')) {
-			return signup(request, env);
+		switch (new URL(request.url).pathname) {
+			case '/favicon.ico':
+				return favicon();
+			case '/':
+				return landing();
+			case '/login':
+				return login(request, env);
+			case '/signup':
+				return signup(request, env);
+			default:
+				console.log(request.url);
+				return new Response('Not found', { status: 404 });
 		}
-
-		console.log(request.url);
-		return new Response('Not found', { status: 404 });
 	},
 };
